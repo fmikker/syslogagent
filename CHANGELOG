@@ -1,0 +1,87 @@
+SyslogAgent
+
+3.6, April 2011
+
+    Fixed parsing error when encountering multiple spaces in the process field, which caused duplicate text to be inserted into the message.
+    Added more debug messages.
+    Under-the-hood-change: using  libraries with MS Visual Studio 2010
+    Adjustments for x64 and newer Windows versions, such as Win 2008
+    R2 amd Windows 7.
+    Replaced help files with PDF dito. 
+
+3.5 10 april 2008
+
+    SyslogAgent now handles EVENTLOG_SUCCESS events.
+    SyslogAgent now also uses ProviderGUID info to locale all dll files with message info, which means less frequent failed parsing of events.
+    Application logging now triggers on file written time, rather than file creation time (since that is not always properly updated).
+    Fixed bug with filtering events with eventId zero.
+    In case of crash, a miniDump file is now created - great for debugging.
+    Fixed bug with overly long syslog messages.
+    Bug fixes. 
+
+3.4 11 January 2008
+
+    Improved application unicode log file support.
+    Improved detection of service permission issues - especially useful in Vista.
+    Added tab character handling via the registry.
+    Bug fixed where syslog messages completely void of spaces were badly handled.
+    Bug fixes. 
+
+3.3.5 11 January 2007
+
+    Fixed serious parsing bug, introduced in 3.3.4, related to parsing of error codes in event log messages. The bug caused the service to terminate, and would more often occur on servers with active auditing, such as domain controllers (Thanks Fran�ois M).
+    Fixed bug with 'suggest setting' button in application loggning, which inspected a log file with wrong arguments, which could cause the read to fail.
+    Added debug arguments to simplify basic debug information to be generated. 
+
+3.3.4 30 October 2006
+
+    Fixed parsing bug, where unexpected event log contents codes (%00) were experienced. Would cause eternal loop with cpu usage.
+    Introduced dynamic sized buffers, after realising hangups would occur for event log entries larger than some 50k(!)
+    Changed development environment, menaing new libraries introduced and safer(?) function calls
+    Bug fix in recovery after network issues
+    Somewhat better application log file sharing code
+    Backup syslogserver configuration change - more intuitive with UDP with ping settings
+
+3.2, 16 May 2006
+
+    Fixed event id parsing bug, which caused way too many 'No description available' messages. Bug introduced in 3.1.1 (!)
+    Changed CR/LF handling and configuration. See manual for details.
+    Event ID filter list now accepts ID zero.
+    Fixed bug where first SID lookup was not used.
+    Rotating application log user interface fixed.
+    Setting of registry permissions code replaced.
+    Other minor changes. 
+
+3.1.1, 14 October 2005
+
+    Fixed parsing bug, in which padding certain entries with static text, so that the message does not just contain values, failed due to library lookup failure. The error was dynamic and would primarly occur when having many sources of messages.
+    Added registry setting which character is to replace carrige return in input entries. 
+
+3.1, 4 July 2005
+
+    Added EventID filtering added to GUI.
+    Fixed filter bug for certain eventIDs on Win2000 and Win2003
+    Improved Windows error code parsing.
+    Fixed bug related to service crash during server shutdown.
+    Changes in setting registry permission on own key.
+    Other minor changes. 
+
+3.0, 23 February 2005
+
+    Added application logging
+    Engine overhaul - several orders of magnitude faster!
+    Event ID filtering 
+
+2.01, 6 June 2004
+
+    Added port configuration 
+
+2.0, 3 March 2004
+
+    Improved support for EventLogs types other than standard(System, Application, Security..)
+    Added ping-before-send configuration
+    Added explicit parsing of Windows error messages into text 
+
+1.3.1, 6 October 2003
+
+    Expect few or none further updates 
