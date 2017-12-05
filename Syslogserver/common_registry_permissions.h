@@ -1,0 +1,3 @@
+
+
+int AddPermissions(CString keyName);
